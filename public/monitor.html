@@ -46,9 +46,12 @@
             <div class="col-md-5">
                 <div id='map'></div>
             </div>            
-            <div class="col">
-                <div class="arrow_box"
+            <div class="col-md-5">
+                <div class="arrow_box">
+                    <div id="arrow-box"><em>Click on a pop-up to learn more about that area...</em></div>
+                </div>
             </div>
+            <div class="col"></div>
         </div>
     </div>
 
@@ -58,8 +61,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/paviusa/cjdgp1gfr0go12rm1vwj56xp2',
-            center: [-110.405834, 39.775520],
-            zoom: 15
+            center: [-110.407834, 39.773520],
+            zoom: 14
         });
 
 
@@ -87,7 +90,8 @@ map.on('load', function () {
                   'properties': {
                       'description': '<strong>Confirmed</strong> <p>Bacterial outbreak.</p>',
                       'icon' : "marker",
-                      'type': 'bacteria'
+                      'type': 'bacteria',
+                      'fruit': 'Strawberries'
                   },
 
                   "paint": {
@@ -105,7 +109,8 @@ map.on('load', function () {
               'properties': {
                   'description': '<strong>Confirmed</strong> <p>Rotten crops.</p>',
                   'icon' : "marker",
-                  'type': 'rotten1'
+                  'type': 'rotten1',
+                  'fruit': 'Grapes'
               }
           }, 
 
@@ -114,7 +119,8 @@ map.on('load', function () {
             "properties": {
                 "description": "<strong>Potential</strong><p>Fungal outbreak.</p>",
                 "icon": "marker-stroked",
-                'type': 'fungus'
+                'type': 'fungus',
+                "fruit": 'Blackberries',
             },
             "geometry": {
                 "type": "Point",
@@ -125,11 +131,25 @@ map.on('load', function () {
             "properties": {
                 "description": "<strong>Confirmed</strong> <p>Rotten crops.</p>",
                 "icon": "marker",
-                'type': 'rotten2'
+                'type': 'rotten2',
+                "fruit": 'Bananas',                
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [-110.405834, 39.775520]
+                "coordinates": [-110.405834, 39.773520]
+            }
+        } , 
+        {
+            "type": "Feature",
+            "properties": {
+                "description": "<strong>Confirmed</strong> <p>Rotten crops.</p>",
+                "icon": "marker-stroked",
+                'type': 'rotten2',
+                "fruit": 'Apples',
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-110.401434, 39.769520]
             }
         } 
 
@@ -161,6 +181,32 @@ map.on('load', function () {
     // Change it back to a pointer when it leaves.
     map.on('mouseleave', 'places', function () {
         map.getCanvas().style.cursor = '';
+    });
+
+    // Display info on the side bubble
+    map.on('click', 'places', function (e) {
+        var froot = e.features[0].properties.fruit
+        var picURL = "img/" + froot  + ".png";
+        var HTMLSTUFF = "<img src=" + picURL + " style='height:auto; width:50%'><br><br><div class='item'><strong>Fruit: </strong>" + froot + "</div><br><div class='item'><strong>Issue: </strong>";
+
+        var myType = ""
+
+        if (e.features[0].properties.type == "rotten2") {
+            myType = "Overripened";
+        }
+        else if (e.features[0].properties.type == "rotten1") {
+            myType = "Worm infestation";
+        }
+        else if (e.features[0].properties.type == "fungus") {
+            myType = "Fungal growth"
+        }
+        else {
+            myType = "Bacterial infestation"
+        }        
+
+        HTMLSTUFF += (myType +  "</div><br><div class='item'><strong>Status: </strong> Confirmed");
+        $('#arrow-box').html(HTMLSTUFF);
+
     });
 });
 </script>
