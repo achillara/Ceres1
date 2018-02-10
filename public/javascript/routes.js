@@ -48,12 +48,9 @@ function myFunction(){
 
 	var arr = [d1,d2,d3];
 	arr.sort();
-}
 
-function submit(){
-	console.log("heyyyy");
+	window.location = "results.html";
 }
-
 
 
 var submitButton = document.getElementById("submit-button");

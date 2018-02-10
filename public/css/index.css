@@ -1,5 +1,5 @@
 body{
-	background: url("../img/rollingfields.jpg") no-repeat center center fixed;
+	background: url("../img/ceres_bg.png") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -24,7 +24,7 @@ body{
 
 .bbox {
 	border-radius: 25px;
-	margin-top: 160px;
+	margin-top: 250px;
 	height: 200px;
 	text-align: center;
 }
