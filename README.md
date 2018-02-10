@@ -1,2 +1,2 @@
 # Ceres
-# An app that helps output the best food yield lol 
+# A management system for agriculturists to monitor the quality of their crops, provide recommendations and predictions, and improve supply chain logistics.
