@@ -48,17 +48,18 @@ function myFunction(){
 
 	var arr = [d1,d2,d3];
 	arr.sort();
-
- 
 }
 
-
+function submit(){
+	console.log("heyyyy");
+}
 
 
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => {
 	console.log("click handled");
+	document.getElementById('disappear').style.display = "none";
 	myFunction();
 });
 
