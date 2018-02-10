@@ -1,0 +1,24 @@
+body{
+	background: url("../img/rollingfields.jpg");
+	background-size: 100% auto;
+}
+
+.bg-light {
+	background-color: rgba(255, 255, 255, .5)!important;
+}
+
+#jumbo {
+	margin-top: 75px;
+	height: 100px;
+}
+
+.jumbotron {
+	background-color: rgba(50,50,50,0);
+}
+
+.bbox {
+	border: 3px solid red;
+	border-radius: 25px;
+	margin-top: -20px;
+	height: 200px;
+}
