@@ -1,8 +1,20 @@
 
 const request = require("request");
 var zipcodes = require('zipcodes');
-var text1 = document.getElementById(c1).innerHTML
-console.log(text1)
+
+function myFunction(){
+	var text1 = document.getElementById("c1").value;
+	console.log(text1);
+}
+
+console.log('FHDSBDJSBKJSNKJ');
+var submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", () => {
+	console.log("click handled");
+	myFunction();
+});
+
+
 
 var d1; 
 var d2; 
@@ -31,6 +43,9 @@ request.get(url, (error, response, body) => {
   d2 = (json.resourceSets[0].resources[0].results[1].travelDuration)
   d3 = (json.resourceSets[0].resources[0].results[2].travelDuration)
 }); 
+
+var arr = [d1,d2,d3];
+arr.sort();
 
 
 
