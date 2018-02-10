@@ -3,6 +3,30 @@ body{
 	
 }
 
+.img-box{
+	height: 250px;
+	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;	
+}
+
+
+.txt-box{
+	height: 325px;
+	background-color: #f2f2f2;
+
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+
+.img-box img {
+   object-fit: cover;
+   width: inherit;
+   height: auto;
+}
 
 .smol {
 	padding-top: 20px;
