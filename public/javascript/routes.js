@@ -59,7 +59,7 @@ function submit(){
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => {
 	console.log("click handled");
-	document.getElementById('disappear').style.display = "none";
+	document.getElementById('appear').setAttribute('id', 'disappear');
 	myFunction();
 });
 
