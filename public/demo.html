@@ -21,8 +21,82 @@
 		<nav class="navbar navbar-light bg-light">
 			<a class="navbar-brand" href="#">CERES</a>
 		</nav>
+		<div class="container">
+			<header class="jumbotron my-4">
+	        <h1 class="display-3">Use Our Classifiers!</h1>
+	        <p class="lead">We utilized the Microsoft Vision API to create an application to autonomously classify crops. This will enable crop producers to identify spoiling crops quickly and to take action, as well as make smart supply chain decisions.</p>
+	      </header>
+	      <!-- Page Features -->
+	      <div class="row text-center" style="margin-bottom:30px;">
 
+	        <div class="col-lg-6 col-md-6 mb-6">
+	          <div class="card">
+	            <div class="card-footer">
+	          		<h2 class="card-title" style="margin-top:10px;">Spoilage</h2>
+	          	</div>
+	            <img id="applePic" class="card-img-top" src="https://www.organicfacts.net/wp-content/uploads/2013/05/Apple4.jpg" alt="">
+	            <div class="card-body">
+	              <h3 class="card-title">Classification: Good</h3>
+	              <p class="card-text">
+	              	<form> 
+	              		<input id="appleForm" type="text" name="firstname"><br>
+	              	</form>	Paste the URL of an image of an apple.</p>
+	            </div>
+	            <div class="card-footer">
+	              <button id="apple" onclick="appleCall()" href="#" class="btn btn-primary">Classify</button>
+	            </div>
+	          </div>
+	        </div>
+
+	        <div class="col-lg-6 col-md-6 mb-6">
+	          <div class="card">
+	          	<div class="card-footer">
+	          		<h2 class="card-title" style="margin-top:10px;">Ripeness</h2>
+	          	</div>
+	            <img id="bananaPic" class="card-img-top" src="https://media.npr.org/assets/img/2011/08/19/istock_000017061174small_wide-69bb958273302dc0a2ecaf5050d94a2beeee3376.jpg?s=1400" alt="">
+	            <div class="card-body">
+	              <h3 class="card-title">Classification: Ripe</h3>
+	              <p class="card-text">
+	              	<form> 
+	              		<input id="bananaForm" type="text" name="firstname"><br>
+	              	</form>	Paste the URL of an image of a banana.</p>
+	            </div>
+	            <div class="card-footer">
+	              <button id="banana" onclick="bananaCall()" href="#" class="btn btn-primary">Classify</button>
+	            </div>
+	          </div>
+	        </div>
+
+	       </div>
+	       <!--end of row -->
+
+		</div>
+		<!--end of container--> 
+		<footer class="py-5 bg-light">
+	      <div class="container">
+	        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+	      </div>
+	      <!-- /.container -->
+	    </footer>
 	</body>
+
+<script>
+
+function appleCall(){
+	var newUrl = document.getElementById("appleForm").value;
+	document.getElementById("applePic").src = newUrl;
+
+	
+}
+
+function bananaCall(){
+	var newUrl = document.getElementById("bananaForm").value;
+	document.getElementById("bananaPic").src = newUrl;
+}
+
+
+</script>
+
 </html>
 
 
