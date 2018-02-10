@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display a popup on click</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 18px/20px 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    }
+</style>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicGF2aXVzYSIsImEiOiJjamRnbjl0b2swbG51MnFtbWNoM2NvZXp1In0.WkoYi8mMqcQ3usr7z_xt-A';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/paviusa/cjdgp1gfr0go12rm1vwj56xp2',
+    center: [-110.405834, 39.775520],
+    zoom: 15
+});
+
+
+
+//var myLayer = L.mapbox.featureLayer().addTo(mapPopups);
+//myLayer.setGeoJSON(geojson);
+
+
+map.on('load', function () {
+    // Add a layer showing the places.
+    map.addLayer({
+        "id": "places",
+        "type": "symbol",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        'type': 'Feature',
+                        'geometry': {
+                          'type': 'Point',
+                          'coordinates': [-110.413834, 39.771520]
+                        },
+                        'properties': {
+                          'description': '<strong>Confirmed</strong> <p>Bacterial outbreak.</p>',
+                          'icon' : "marker",
+                          'type': 'bacteria'
+                        },
+                        
+                        "paint": {
+                              "text-size": 12,
+                              "icon-size": 1,
+                              "icon-opacity": 0
+                            }
+                      },
+                    {
+                        'type': 'Feature',
+                        'geometry': {
+                          'type': 'Point',
+                          'coordinates': [-110.406834, 39.777520]
+                        },
+                        'properties': {
+                          'description': '<strong>Confirmed</strong> <p>Rotten crops.</p>',
+                          'icon' : "marker",
+                          'type': 'rotten1'
+                        }
+                      }, 
+
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "description": "<strong>Potential</strong><p>Fungal outbreak.</p>",
+                        "icon": "marker-stroked",
+                        'type': 'fungus'
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-110.409834, 39.775520]
+                    }
+                }, {
+                    "type": "Feature",
+                    "properties": {
+                        "description": "<strong>Confirmed</strong> <p>Rotten crops.</p>",
+                        "icon": "marker",
+                        'type': 'rotten2'
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-110.405834, 39.775520]
+                    }
+                } 
+                
+                ]
+            }
+        },
+        "layout": {
+            "icon-image": "{icon}-15",
+            "icon-allow-overlap": true
+        }
+    });
+
+
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+    // location of the feature, with description HTML from its properties.
+    map.on('click', 'places', function (e) {
+        new mapboxgl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+</script>
+
+</body>
+</html>
