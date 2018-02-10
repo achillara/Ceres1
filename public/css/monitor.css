@@ -3,6 +3,11 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+.smol {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 .bg-light {
 	background-color: rgba(255, 255, 255, .5)!important;
 }
