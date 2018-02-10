@@ -11,7 +11,7 @@ body{
 
 #jumbo {
 	margin-top: 65px;
-	margin-left: -70px;
+	margin-left: 0px;
 	height: 100px;
 }
 
@@ -21,7 +21,7 @@ body{
 
 .bbox {
 	border-radius: 25px;
-	margin-top: 55px;
+	margin-top: 160px;
 	height: 200px;
 	text-align: center;
 }
