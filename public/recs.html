@@ -10,8 +10,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
-	<link rel="stylesheet" href="css/index.css">
-
+	<!--<link rel="stylesheet" href="css/index.css"> -->
+	<link rel="stylesheet" href="css/monitor.css">
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -19,14 +19,21 @@
 
 </head>
 <body>
+	<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand" href="chain.html">CERES</a>
+		</nav>
 	<div class="container">
+		<header class="jumbotron my-4 smol">
+            <h1 class="display-3">Personalized Recommendations.</h1>
+            <p class="lead">We used Tensorflow to predict corn yields based on previous harvests. We used data from the USDA about crop growth and weather in Minnesota and the Weather Underground API to get current weather conditions. </p>
+          </header>
 		<div class="row">
-			<div class="col"></div>
-			<div class="col-md-2">
-				<div style="height: 200px; width: 300px; background-color: gray">
-					<p><strong>Expected Weekly Corn Harvest: </strong> 444 bushels</p>
-				</div>
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4" style="background-color: white">	
+					<h4 style="text-align:center;margin-top:15px"><strong>Your Expected Weekly Corn Harvest </strong> </h4>
+					<p style="text-align:center;"> 444 bushels </p>
 			</div>
+			<div class="col-lg-4"></div>
 		</div>
 		<canvas id="myChart" width="400" height="200"></canvas>
 	</div>
