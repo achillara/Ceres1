@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/achillara/Ceres#readme",
   "dependencies": {
+    "browserify": "^16.0.0",
     "express": "^4.16.2",
     "request": "^2.83.0",
     "zipcodes": "^6.0.0"
