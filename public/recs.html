@@ -1,60 +1,96 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>CERES | Home</title>
+<head>
+	<title>CERES | Home</title>
 
-		<!-- STYLE -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- STYLE -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
-		<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 
-		<!-- JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	</head>
-	<body>
-		<nav class="navbar navbar-light bg-light">
-			<a class="navbar-brand" href="#">CERES</a>
-		</nav>
-		<div class="container">
-			<!--div class="row" id="jumbo">
-				<div class="col-md-2"></div>
-				<div class="col-md-5 jumbotron">
-					<h1 style="margin-top: -25px; font-size: 56pt">WELCOME</h1>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-md-2">
+				<div style="height: 200px; width: 300px; background-color: gray">
+					<p><strong>Expected Weekly Corn Harvest: </strong> 444 bushels</p>
 				</div>
-				<div class="col"></div>
-			</div-->
-			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-md-3">
-							<a href="monitor.html"><div class="bbox" id="monitor"><img src="img/monitor.png"></div></a>
-						</div>
-						<div class="col-md-3">
-							<a href="recs.html"><div class="bbox" id="recs"><img src="img/recs.png"></div></a>
-						</div>
-						<div class="col-md-3">
-							<a href="chain.html"><div class="bbox" id="supply-chain"><img src="img/chain.png"></div></a>
-						</div>
-						<div class="col-md-3">
-							<a href="farm.html"><div class="bbox" id="my-farm"><img src="img/farm.png"></div></a>
-						</div>																		
-					</div>
-				</div>
-											
-				<div class="col"></div>
-			</div>			
+			</div>
 		</div>
+		<canvas id="myChart" width="400" height="200"></canvas>
+	</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 
-	</body>
+
+<script>
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+			datasets: [{
+				label: 'Annual Corn (Bushels) ',
+				data: [1150, 1175, 1240, 1290, 1195, 1380, 1297, 1180, 1420, 1535],
+				backgroundColor: [
+				'rgba(255, 99, 132, 0.2)',
+				'rgba(54, 162, 235, 0.2)',
+				'rgba(255, 206, 86, 0.2)',
+				'rgba(75, 192, 192, 0.2)',
+				'rgba(153, 102, 255, 0.2)',
+				'rgba(255, 159, 64, 0.2)',
+				'rgba(255, 99, 132, 0.2)',
+				'rgba(54, 162, 235, 0.2)',
+				'rgba(255, 206, 86, 0.2)',
+				'rgba(75, 192, 192, 0.2)',
+				'rgba(153, 102, 255, 0.2)',
+				'rgba(255, 159, 64, 0.2)'				
+				],
+				borderColor: [
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)',
+				'rgba(153, 102, 255, 1)',
+				'rgba(255, 159, 64, 1)',
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)',
+				'rgba(153, 102, 255, 1)',
+				'rgba(255, 159, 64, 1)'				
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+</script>
+
 </html>
 
 

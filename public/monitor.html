@@ -37,8 +37,12 @@
     </style>
 
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">CERES</a>
+        <p height=50px></p>
     </nav>    
+
+    <div id="banner">
+        <p>MONITOR HEALTH</p><span class="glyphicon glyphicon-tasks"></span>
+    </div>
 
     <div class="container">
         <div class="row" id="map-row">
@@ -187,7 +191,7 @@ map.on('load', function () {
     map.on('click', 'places', function (e) {
         var froot = e.features[0].properties.fruit
         var picURL = "img/" + froot  + ".png";
-        var HTMLSTUFF = "<img src=" + picURL + " style='height:auto; width:50%'><br><br><div class='item'><strong>Fruit: </strong>" + froot + "</div><br><div class='item'><strong>Issue: </strong>";
+        var HTMLSTUFF = "<img src=" + picURL + " style='height:100px; width:auto'><br><br><div class='item'><strong>Fruit: </strong>" + froot + "</div><br><div class='item'><strong>Issue: </strong>";
 
         var myType = ""
 

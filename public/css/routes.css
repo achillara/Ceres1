@@ -4,7 +4,6 @@
 
 #banner{
 	width: inherit;
-	margin-top: 30px;
 	background: linear-gradient(to right, lightblue , yellow);
 	text-align: left;
 	height: 50px;
@@ -12,6 +11,9 @@
 
 #banner p{
 	margin-left: 50px;
+	font-size: 24pt;
+	color: rgb(100,105,103);
+	letter-spacing: 3px;
 }
 
 body{
