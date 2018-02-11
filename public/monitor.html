@@ -26,9 +26,6 @@
         body { margin:0; padding:0; }
         
     </style>
-</head>
-<body>
-
     <style>
         .mapboxgl-popup {
             max-width: 400px;
@@ -36,15 +33,23 @@
         }
     </style>
 
-    <nav class="navbar navbar-light bg-light">
-        <p height=50px></p>
-    </nav>    
+</head>
+<body>
 
-    <div id="banner">
-        <p>MONITOR HEALTH</p><span class="glyphicon glyphicon-tasks"></span>
+    
+<!--
+    <nav style="background-color:#e6e6e6;" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">CERES</a>
+    </nav>    -->
+    <div style="height:55px;background-color:#f3f3f3;" > 
+    <a style="margin-left:15px;margin-top:8px;color:#000000" class="navbar-brand" href="#">   CERES</a>   
     </div>
-
     <div class="container">
+        <header class="jumbotron my-4 smol">
+            <h1 class="display-3">Monitor Crop Health.</h1>
+            <p class="lead">This visualization is powered by the Mapbox API, and the technology is additionally supported by our Microsoft Custom Vision image classifier, which is able to identify healthy plants from those affected by pests, fungus, or an infection. </p>
+          </header>
+
         <div class="row" id="map-row">
             <div class="col-md-1"></div>
             <div class="col-md-5">
@@ -57,6 +62,8 @@
             </div>
             <div class="col"></div>
         </div>
+
+        <div class="row" style="height:100px;"> </div>
     </div>
 
     <script>
@@ -191,7 +198,7 @@ map.on('load', function () {
     map.on('click', 'places', function (e) {
         var froot = e.features[0].properties.fruit
         var picURL = "img/" + froot  + ".png";
-        var HTMLSTUFF = "<img src=" + picURL + " style='height:100px; width:auto'><br><br><div class='item'><strong>Fruit: </strong>" + froot + "</div><br><div class='item'><strong>Issue: </strong>";
+        var HTMLSTUFF = "<img src=" + picURL + " style='height:auto; width:50%'><br><br><div class='item'><strong>Fruit: </strong>" + froot + "</div><br><div class='item'><strong>Issue: </strong>";
 
         var myType = ""
 
