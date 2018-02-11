@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/recs.css">
 
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -19,7 +19,11 @@
 
 </head>
 <body>
-	<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <p>CERES</p>
+    </nav>    
+
+	<div class="PAST, PRESENT, FUTURE">
 		<div class="row">
 			<div class="col"></div>
 			<div class="col-md-2">
@@ -28,7 +32,13 @@
 				</div>
 			</div>
 		</div>
-		<canvas id="myChart" width="400" height="200"></canvas>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-md-8">			
+				<canvas id="myChart" width="400" height="200"></canvas>
+			</div>
+			<div class="col"></div>
+		</div>
 	</div>
 </body>
 
@@ -46,7 +56,7 @@
 		data: {
 			labels: ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"],
 			datasets: [{
-				label: 'Annual Corn (Bushels) ',
+				label: 'Annual Corn (Millions of Bushels) ',
 				data: [1150, 1175, 1240, 1290, 1195, 1380, 1297, 1180, 1420, 1535],
 				backgroundColor: [
 				'rgba(255, 99, 132, 0.2)',
